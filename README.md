@@ -1,4 +1,4 @@
-<img width="1066" alt="Screenshot 2023-10-02 at 10 11 42 pm" src="https://github.com/fivetran-jenna/cruise0/assets/95600637/2c62a6ca-198b-4645-97e0-c2e8dc8adf00"># Auth0 React SDK Sample Application
+# Auth0 React SDK Sample Application
 
 This sample demonstrates the integration of [Auth0 React SDK](https://github.com/auth0/auth0-react) into a React application created using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html).
 
@@ -63,6 +63,7 @@ To do this, first copy `src/auth_config.json.example` into a new file in the sam
 
 AUTH) API_IDENTIFIER can be retrieved from here:
 <img width="1138" alt="Screenshot 2023-10-03 at 12 52 11 am" src="https://github.com/fivetran-jenna/cruise0/assets/95600637/773b7c64-6957-438a-bff9-6e26362955c3">
+
 
 ## 0AUTH Application Dashboard Settings:
 Set Allowed Callback URLs: http://localhost:3000
