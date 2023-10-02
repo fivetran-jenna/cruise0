@@ -1,30 +1,51 @@
-# Auth0 React SDK Sample Application
+<img width="1066" alt="Screenshot 2023-10-02 at 10 11 42 pm" src="https://github.com/fivetran-jenna/cruise0/assets/95600637/2c62a6ca-198b-4645-97e0-c2e8dc8adf00"># Auth0 React SDK Sample Application
 
-This sample demonstrates the integration of [Auth0 React SDK](https://github.com/auth0/auth0-react) into a React application created using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html). The sample is a companion to the [Auth0 React SDK Quickstart](https://auth0.com/docs/quickstart/spa/react).
+This sample demonstrates the integration of [Auth0 React SDK](https://github.com/auth0/auth0-react) into a React application created using [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html).
 
-This sample demonstrates the following use cases:
+This sample demonstrates the following use cases for React SPA:
 
-- [Login](https://github.com/auth0-samples/auth0-react-samples/blob/master/Sample-01/src/components/NavBar.js#L72-L79)
-- [Logout](https://github.com/auth0-samples/auth0-react-samples/blob/master/Sample-01/src/components/NavBar.js#L102-L108)
-- [Showing the user profile](https://github.com/auth0-samples/auth0-react-samples/blob/master/Sample-01/src/views/Profile.js)
-- [Protecting routes](https://github.com/auth0-samples/auth0-react-samples/blob/master/Sample-01/src/views/Profile.js#L33)
-- [Calling APIs](https://github.com/auth0-samples/auth0-react-samples/blob/master/Sample-01/src/views/ExternalApi.js)
+- Login
+- Logout
+- New User Sign Up
+- Enforced Email Verification
+- Google Oauth Integration
+- Universal Login
+
+## Create a Free Auth0 Account
+
+1. Go to [Auth0](https://auth0.com) and click **Sign Up**.
+2. Use Google, GitHub, or Microsoft Account to login.
 
 ## Project setup
 
-Use `yarn` to install the project dependencies:
+Use `npm` to install the project dependencies:
 
 ```bash
-yarn install
+npm install
 ```
+For macOS, use homebrew, to install node 
+
+```bash
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+```bash
+brew install node
+```
+To check versions add -v:
+```bash
+node -v
+```
+```bash
+npm -v
+```
+Credit: ([https://medium.com/@hayasnc/how-to-install-nodejs-and-npm-on-mac-using-homebrew-b33780287d8f])
 
 ## Configuration
 
 ### Create an API
 
-For the ["call an API"](https://auth0.com/docs/quickstart/spa/react/02-calling-an-api) page to work, you will need to [create an API](https://auth0.com/docs/apis) using the [management dashboard](https://manage.auth0.com/#/apis). This will give you an API identifier that you can use in the `audience` configuration field below.
+For the ["call an API"](https://auth0.com/docs/quickstart/spa/react/02-calling-an-api) page to work, you will need to [create an API](https://auth0.com/docs/apis) using the [management dashboard](https://manage.auth0.com/#/apis). This will generate an API identifier that you can use in the `audience` configuration field below. 
 
-If you do not wish to use an API or observe the API call working, you should not specify the `audience` value in the next step. Otherwise, you will receive a "Service not found" error when trying to authenticate.
 
 ### Configure credentials
 
@@ -36,41 +57,38 @@ To do this, first copy `src/auth_config.json.example` into a new file in the sam
 {
   "domain": "{YOUR AUTH0 DOMAIN}",
   "clientId": "{YOUR AUTH0 CLIENT ID}",
-  "audience": "{YOUR AUTH0 API_IDENTIFIER}",
-  "appOrigin": "{OPTIONAL: THE BASE URL OF YOUR APPLICATION (default: http://localhost:3000)}",
-  "apiOrigin": "{OPTIONAL: THE BASE URL OF YOUR API (default: http://localhost:3001)}"
+  "audience": "{YOUR AUTH0 API_IDENTIFIER}"
 }
 ```
 
-**Note**: Do not specify a value for `audience` here if you do not wish to use the API part of the sample.
+AUTH) API_IDENTIFIER can be retrieved from here:
+<img width="1138" alt="Screenshot 2023-10-03 at 12 52 11 am" src="https://github.com/fivetran-jenna/cruise0/assets/95600637/773b7c64-6957-438a-bff9-6e26362955c3">
+
+## 0AUTH Application Dashboard Settings:
+Set Allowed Callback URLs: http://localhost:3000
+Set Allowed Web Origins:   http://localhost:3000
+Set Allowed Logout URLs:   http://localhost:3000
+**Note if the '3000' port are being used by another app, use another (unused) port. To check if ports are being used run `sudo lsof :<PORT_NUMBER>`. To kill the process run `kill -15 <PROCESS_ID>`.
+
+## Google 0Auth Integration:
+In 0Auth dashboard, `Create Connection` and complete settings. Leave ClientID and ClientSecret blank if creating for the application for testing purposes.
+
+<img width="1319" alt="Screenshot 2023-10-03 at 1 23 18 am" src="https://github.com/fivetran-jenna/cruise0/assets/95600637/15263732-4392-46c5-8b92-cd9f2d998fe7">
+
+If for production, follow instructions as below to create credentials in Google Cloud Platform.
+[https://developers.google.com/workspace/guides/create-credentials]
 
 ## Run the sample
 
-### Compile and hot-reload for development
-
-This compiles and serves the React app and starts the backend API server on port 3001.
+In the same folder as the app files run the below commands. This compiles and serves the React app and starts the backend API server on port 3001.
 
 ```bash
-yarn run dev
-```
-
-## Deployment
-
-### Compiles and minifies for production
-
-```bash
-yarn run build
+npm install && npm start
 ```
 
 ### Docker build
 
 To build and run the Docker image, run `exec.sh`, or `exec.ps1` on Windows.
-
-### Run your tests
-
-```bash
-yarn run test
-```
 
 ## Frequently Asked Questions
 
@@ -87,10 +105,6 @@ Auth0 helps you to:
 * Analytics of how, when, and where users are logging in.
 * Pull data from other sources and add it to the user profile through [JavaScript rules](https://auth0.com/docs/rules).
 
-## Create a Free Auth0 Account
-
-1. Go to [Auth0](https://auth0.com) and click **Sign Up**.
-2. Use Google, GitHub, or Microsoft Account to login.
 
 ## Issue Reporting
 
